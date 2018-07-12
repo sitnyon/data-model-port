@@ -11,7 +11,7 @@ PostGIS
 * [Views](sql/04_views.sql)
 * [Rules](sql/05_rules.sql)
 
-Notes : Grants are deliberately exclued. Thinks also to adapt your SRID into tables with geometry.
+Notes : Grants are deliberately exclued. Thinks also to adapt your SRID to tables with geometry.
 
 
 QGIS
