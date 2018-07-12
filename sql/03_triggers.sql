@@ -39,3 +39,25 @@ END;$BODY$
   COST 100;
 
 COMMENT ON FUNCTION port_03.set_nom_prenom() IS 'Défini le nom et prenom';
+
+
+-- Trigger: tr_por_bateaux_encombrement on port_03.por_tbl_bateaux
+
+-- DROP TRIGGER tr_por_bateaux_encombrement ON port_03.por_tbl_bateaux;
+
+CREATE TRIGGER tr_por_bateaux_encombrement
+  BEFORE INSERT OR UPDATE OF longueur, largeur
+  ON port_03.por_tbl_bateaux
+  FOR EACH ROW
+  EXECUTE PROCEDURE port_03.set_encombrement();
+  
+  
+  -- Trigger: tr_por_proprietaire_nom_premom on port_03.por_tbl_proprietaires
+
+-- DROP TRIGGER tr_por_proprietaire_nom_premom ON port_03.por_tbl_proprietaires;
+
+CREATE TRIGGER tr_por_proprietaire_nom_premom
+  BEFORE INSERT OR UPDATE OF nom
+  ON port_03.por_tbl_proprietaires
+  FOR EACH ROW
+  EXECUTE PROCEDURE port_03.set_nom_prenom();
