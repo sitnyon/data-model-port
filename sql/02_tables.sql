@@ -282,6 +282,3 @@ ALTER TABLE port_03.por_tbl_evenements
 
 COMMENT ON TABLE port_03.por_tbl_evenements
   IS 'Table des évenements (travaux port)';
-
-  
-  
