@@ -15,7 +15,7 @@ PostGIS
 QGIS
 -------
 
-* [Project](qgs/Gestion du port.qgs)
+* [Project](qgs/port.qgs)
 * [Symbols](qgs/symbols/)
 
 
