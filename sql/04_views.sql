@@ -58,7 +58,8 @@ CREATE OR REPLACE VIEW port_03.por_vtbl_bateaux_proprietaires AS
     b.tarif_special
    FROM port_03.por_tbl_bateaux b
      LEFT JOIN port_03.por_tbl_proprietaires p ON b.id_proprietaire = p.id
-     LEFT JOIN ( SELECT b_1.id_proprietaire,
+     LEFT JOIN ( SELECT b_1.id AS id_bateau,
+            b_1.id_proprietaire,
             row_number() OVER (ORDER BY b_1.date_inscription)::integer AS no_attente,
             p_1.nom,
             p_1.prenom,
@@ -68,7 +69,8 @@ CREATE OR REPLACE VIEW port_03.por_vtbl_bateaux_proprietaires AS
              LEFT JOIN port_03.por_tbl_proprietaires p_1 ON b_1.id_proprietaire = p_1.id
           WHERE (b_1.statut::text <> ALL (ARRAY['Placé'::character varying::text, 'Résilié'::character varying::text])) AND p_1.ville::text = 'Nyon'::text
         UNION
-         SELECT b_1.id_proprietaire,
+         SELECT b_1.id AS id_bateau,
+            b_1.id_proprietaire,
             row_number() OVER (ORDER BY b_1.date_inscription)::integer AS no_attente,
             p_1.nom,
             p_1.prenom,
@@ -76,7 +78,7 @@ CREATE OR REPLACE VIEW port_03.por_vtbl_bateaux_proprietaires AS
             b_1.date_inscription
            FROM port_03.por_tbl_bateaux b_1
              LEFT JOIN port_03.por_tbl_proprietaires p_1 ON b_1.id_proprietaire = p_1.id
-          WHERE (b_1.statut::text <> ALL (ARRAY['Placé'::character varying::text, 'Résilié'::character varying::text])) AND (p_1.ville::text <> 'Nyon'::text OR p_1.ville IS NULL)) foo ON p.id = foo.id_proprietaire
+          WHERE (b_1.statut::text <> ALL (ARRAY['Placé'::character varying::text, 'Résilié'::character varying::text])) AND (p_1.ville::text <> 'Nyon'::text OR p_1.ville IS NULL)) foo ON b.id = foo.id_bateau
   ORDER BY p.nom, p.prenom;
 
 COMMENT ON VIEW port_03.por_vtbl_bateaux_proprietaires
