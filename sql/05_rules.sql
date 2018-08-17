@@ -32,19 +32,18 @@ COMMENT ON RULE upd_por_geo_places_bateaux ON port_03.por_vgeo_placement IS 'Rè
 -- DROP RULE ins_por_geo_places_bateaux ON port_03.por_vgeo_placement;
 
 CREATE OR REPLACE RULE ins_por_geo_places_bateaux AS
-    ON INSERT TO port_03.por_vgeo_placement
-    DO INSTEAD
-INSERT INTO port_03.por_geo_places_bateaux (id, numero_place, statut, emplacement, type, geom)
-  VALUES (new.id, new.numero_place, new.statut, new.emplacement, new.type, new.geom)
-  RETURNING por_geo_places_bateaux.id,
+    ON INSERT TO port_03.por_vgeo_placement DO INSTEAD  INSERT INTO port_03.por_geo_places_bateaux (numero_place, statut, emplacement, type, geom)
+  VALUES (new.numero_place, new.statut, new.emplacement, new.type, new.geom)
+  RETURNING NULL::integer AS id,
     por_geo_places_bateaux.numero_place,
     por_geo_places_bateaux.statut,
     por_geo_places_bateaux.emplacement,
     por_geo_places_bateaux.type,
     0::text AS placement,
     por_geo_places_bateaux.geom;
-
 COMMENT ON RULE ins_por_geo_places_bateaux ON port_03.por_vgeo_placement IS 'Règle d''insert de la table por_geo_places_bateaux depuis la vue';
+
+
 
 -- Rule: del_por_geo_places_bateaux ON port_03.por_vgeo_placement
 
