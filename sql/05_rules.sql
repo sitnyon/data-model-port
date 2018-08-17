@@ -16,3 +16,46 @@ CREATE OR REPLACE RULE upd_por_tbl_proprietaires AS
     ON UPDATE TO port_03.por_vtbl_bateaux_proprietaires DO INSTEAD  UPDATE port_03.por_tbl_proprietaires SET nom = new.nom, prenom = new.prenom, adresse = new.adresse, npa = new.npa, ville = new.ville, tel = new.tel
   WHERE por_tbl_proprietaires.id = new.id_proprietaire;
 COMMENT ON RULE upd_por_tbl_proprietaires ON port_03.por_vtbl_bateaux_proprietaires IS 'Règle de mise à jour de la table por_tbl_proprietaires depuis la vue';
+
+-- Rule: upd_por_tbl_places_bateaux ON port_ntel.por_vgeo_placement
+
+-- DROP Rule upd_por_tbl_places_bateaux ON port_ntel.por_vgeo_placement;
+
+CREATE OR REPLACE RULE upd_por_tbl_places_bateaux AS
+    ON UPDATE TO port_ntel.por_vgeo_placement
+    DO INSTEAD
+UPDATE port_ntel.por_geo_places_bateaux SET numero_place = new.numero_place, statut = new.statut, emplacement = new.emplacement, type = new.type, geom = new.geom
+  WHERE por_geo_places_bateaux.id = new.id;
+
+COMMENT ON RULE upd_por_tbl_places_bateaux ON port_ntel.por_vgeo_placement IS 'Règle de mise à jour de la table por_geo_places_bateaux depuis la vue';
+
+-- Rule: ins_por_tbl_places_bateaux ON port_ntel.por_vgeo_placement
+
+-- DROP Rule ins_por_tbl_places_bateaux ON port_ntel.por_vgeo_placement;
+
+CREATE OR REPLACE RULE ins_por_tbl_places_bateaux AS
+    ON INSERT TO port_ntel.por_vgeo_placement
+    DO INSTEAD
+INSERT INTO port_ntel.por_geo_places_bateaux (id, numero_place, statut, emplacement, type, geom)
+  VALUES (new.id, new.numero_place, new.statut, new.emplacement, new.type, new.geom)
+  RETURNING por_geo_places_bateaux.id,
+    por_geo_places_bateaux.numero_place,
+    por_geo_places_bateaux.statut,
+    por_geo_places_bateaux.emplacement,
+    por_geo_places_bateaux.type,
+    0::text AS placement,
+    por_geo_places_bateaux.geom;
+
+COMMENT ON RULE ins_por_tbl_places_bateaux ON port_ntel.por_vgeo_placement IS 'Règle de mise à jour de la table por_geo_places_bateaux depuis la vue';
+
+-- Rule: del_por_tbl_places_bateaux ON port_ntel.por_vgeo_placement
+
+-- DROP Rule del_por_tbl_places_bateaux ON port_ntel.por_vgeo_placement;
+
+CREATE OR REPLACE RULE del_por_tbl_places_bateaux AS
+    ON DELETE TO port_ntel.por_vgeo_placement
+    DO INSTEAD
+DELETE FROM port_ntel.por_geo_places_bateaux
+  WHERE por_geo_places_bateaux.id = old.id;
+
+COMMENT ON RULE del_por_tbl_places_bateaux ON port_ntel.por_vgeo_placement IS 'Règle de mise à jour de la table por_geo_places_bateaux depuis la vue';
