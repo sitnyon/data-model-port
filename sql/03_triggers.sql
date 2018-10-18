@@ -1,8 +1,8 @@
--- Function: port_03.set_encombrement()
+-- Function: port.set_encombrement()
 
--- DROP FUNCTION port_03.set_encombrement();
+-- DROP FUNCTION port.set_encombrement();
 
-CREATE OR REPLACE FUNCTION port_03.set_encombrement()
+CREATE OR REPLACE FUNCTION port.set_encombrement()
   RETURNS trigger AS
 $BODY$BEGIN
 
@@ -14,14 +14,14 @@ END;$BODY$
   LANGUAGE plpgsql VOLATILE
   COST 100;
 
-COMMENT ON FUNCTION port_03.set_encombrement() IS 'Calcule l''encombrement du bateau (largeur*longueur) et la met dans "encombrement"';
+COMMENT ON FUNCTION port.set_encombrement() IS 'Calcule l''encombrement du bateau (largeur*longueur) et la met dans "encombrement"';
 
 
--- Function: port_03.set_nom_prenom()
+-- Function: port.set_nom_prenom()
 
--- DROP FUNCTION port_03.set_nom_prenom();
+-- DROP FUNCTION port.set_nom_prenom();
 
-CREATE OR REPLACE FUNCTION port_03.set_nom_prenom()
+CREATE OR REPLACE FUNCTION port.set_nom_prenom()
   RETURNS trigger AS
 $BODY$BEGIN
 
@@ -38,26 +38,26 @@ END;$BODY$
   LANGUAGE plpgsql VOLATILE
   COST 100;
 
-COMMENT ON FUNCTION port_03.set_nom_prenom() IS 'Défini le nom et prenom';
+COMMENT ON FUNCTION port.set_nom_prenom() IS 'Défini le nom et prenom';
 
 
--- Trigger: tr_por_bateaux_encombrement on port_03.por_tbl_bateaux
+-- Trigger: tr_por_bateaux_encombrement on port.por_tbl_bateaux
 
--- DROP TRIGGER tr_por_bateaux_encombrement ON port_03.por_tbl_bateaux;
+-- DROP TRIGGER tr_por_bateaux_encombrement ON port.por_tbl_bateaux;
 
 CREATE TRIGGER tr_por_bateaux_encombrement
   BEFORE INSERT OR UPDATE OF longueur, largeur
-  ON port_03.por_tbl_bateaux
+  ON port.por_tbl_bateaux
   FOR EACH ROW
-  EXECUTE PROCEDURE port_03.set_encombrement();
+  EXECUTE PROCEDURE port.set_encombrement();
   
   
-  -- Trigger: tr_por_proprietaire_nom_premom on port_03.por_tbl_proprietaires
+  -- Trigger: tr_por_proprietaire_nom_premom on port.por_tbl_proprietaires
 
--- DROP TRIGGER tr_por_proprietaire_nom_premom ON port_03.por_tbl_proprietaires;
+-- DROP TRIGGER tr_por_proprietaire_nom_premom ON port.por_tbl_proprietaires;
 
 CREATE TRIGGER tr_por_proprietaire_nom_premom
   BEFORE INSERT OR UPDATE OF nom
-  ON port_03.por_tbl_proprietaires
+  ON port.por_tbl_proprietaires
   FOR EACH ROW
-  EXECUTE PROCEDURE port_03.set_nom_prenom();
+  EXECUTE PROCEDURE port.set_nom_prenom();

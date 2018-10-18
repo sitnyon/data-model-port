@@ -1,7 +1,7 @@
--- Schema: port_03
+-- Schema: port
 
--- DROP SCHEMA port_03;
+-- DROP SCHEMA port;
 
-CREATE SCHEMA port_03;
-COMMENT ON SCHEMA port_03
+CREATE SCHEMA port;
+COMMENT ON SCHEMA port
   IS 'por';

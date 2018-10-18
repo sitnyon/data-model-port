@@ -1,197 +1,197 @@
--- Table: port_03.por_geo_equipements_lineaires
+-- Table: port.por_geo_equipements_lineaires
 
--- DROP TABLE port_03.por_geo_equipements_lineaires;
+-- DROP TABLE port.por_geo_equipements_lineaires;
 
-CREATE TABLE port_03.por_geo_equipements_lineaires
+CREATE TABLE port.por_geo_equipements_lineaires
 (
   id serial NOT NULL,
   type character varying(50),
   diametre_m integer,
-  geom geometry(MultiLineString,21781),
+  geom geometry(MultiLineString,2056),
   CONSTRAINT por_geo_equipements_lineaires_pkey PRIMARY KEY (id)
 )
 WITH (
   OIDS=FALSE
 );
-COMMENT ON TABLE port_03.por_geo_equipements_lineaires
+COMMENT ON TABLE port.por_geo_equipements_lineaires
   IS 'Equipements portuaires (lignes)';
 
--- Index: port_03.por_geo_equipements_lineaires_geom_149318868113
+-- Index: port.por_geo_equipements_lineaires_geom_149318868113
 
--- DROP INDEX port_03.por_geo_equipements_lineaires_geom_149318868113;
+-- DROP INDEX port.por_geo_equipements_lineaires_geom_149318868113;
 
 CREATE INDEX por_geo_equipements_lineaires_geom_149318868113
-  ON port_03.por_geo_equipements_lineaires
+  ON port.por_geo_equipements_lineaires
   USING gist
   (geom);
 
--- Table: port_03.por_geo_equipements_ponctuels
+-- Table: port.por_geo_equipements_ponctuels
 
--- DROP TABLE port_03.por_geo_equipements_ponctuels;
+-- DROP TABLE port.por_geo_equipements_ponctuels;
 
-CREATE TABLE port_03.por_geo_equipements_ponctuels
+CREATE TABLE port.por_geo_equipements_ponctuels
 (
   id serial NOT NULL,
   type character varying(50),
-  geom geometry(Point,21781),
+  geom geometry(Point,2056),
   CONSTRAINT por_geo_equipements_ponctuels_pkey PRIMARY KEY (id)
 )
 WITH (
   OIDS=FALSE
 );
-COMMENT ON TABLE port_03.por_geo_equipements_ponctuels
+COMMENT ON TABLE port.por_geo_equipements_ponctuels
   IS 'Equipements portuaires (points)';
 
--- Index: port_03.por_geo_equipements_ponctuels_geom_1493189692587
+-- Index: port.por_geo_equipements_ponctuels_geom_1493189692587
 
--- DROP INDEX port_03.por_geo_equipements_ponctuels_geom_1493189692587;
+-- DROP INDEX port.por_geo_equipements_ponctuels_geom_1493189692587;
 
 CREATE INDEX por_geo_equipements_ponctuels_geom_1493189692587
-  ON port_03.por_geo_equipements_ponctuels
+  ON port.por_geo_equipements_ponctuels
   USING gist
   (geom);
   
--- Table: port_03.por_geo_equipements_surfaciques
+-- Table: port.por_geo_equipements_surfaciques
 
--- DROP TABLE port_03.por_geo_equipements_surfaciques;
+-- DROP TABLE port.por_geo_equipements_surfaciques;
 
-CREATE TABLE port_03.por_geo_equipements_surfaciques
+CREATE TABLE port.por_geo_equipements_surfaciques
 (
   id serial NOT NULL,
   type character varying(50),
   indication character varying(50),
-  geom geometry(MultiPolygon,21781),
+  geom geometry(MultiPolygon,2056),
   CONSTRAINT por_geo_equipements_surfaciques_pkey PRIMARY KEY (id)
 )
 WITH (
   OIDS=FALSE
 );
-COMMENT ON TABLE port_03.por_geo_equipements_surfaciques
+COMMENT ON TABLE port.por_geo_equipements_surfaciques
   IS 'Equipements portuaires (surfaces)';
 
--- Index: port_03.por_geo_equipements_surfaciques_geom_146159173514
+-- Index: port.por_geo_equipements_surfaciques_geom_146159173514
 
--- DROP INDEX port_03.por_geo_equipements_surfaciques_geom_146159173514;
+-- DROP INDEX port.por_geo_equipements_surfaciques_geom_146159173514;
 
 CREATE INDEX por_geo_equipements_surfaciques_geom_146159173514
-  ON port_03.por_geo_equipements_surfaciques
+  ON port.por_geo_equipements_surfaciques
   USING gist
   (geom);
   
--- Table: port_03.por_geo_esatacades_labels
+-- Table: port.por_geo_esatacades_labels
 
--- DROP TABLE port_03.por_geo_esatacades_labels;
+-- DROP TABLE port.por_geo_esatacades_labels;
 
-CREATE TABLE port_03.por_geo_esatacades_labels
+CREATE TABLE port.por_geo_esatacades_labels
 (
   id serial NOT NULL,
   nom character varying(50),
-  geom geometry(Point,21781),
+  geom geometry(Point,2056),
   CONSTRAINT por_geo_esatacades_labels_pkey PRIMARY KEY (id)
 )
 WITH (
   OIDS=FALSE
 );
-COMMENT ON TABLE port_03.por_geo_esatacades_labels
+COMMENT ON TABLE port.por_geo_esatacades_labels
   IS 'Labels pours les estacades (pontons)';
 
--- Index: port_03.por_geo_esatacades_labels_geom_149318868110
+-- Index: port.por_geo_esatacades_labels_geom_149318868110
 
--- DROP INDEX port_03.por_geo_esatacades_labels_geom_149318868110;
+-- DROP INDEX port.por_geo_esatacades_labels_geom_149318868110;
 
 CREATE INDEX por_geo_esatacades_labels_geom_149318868110
-  ON port_03.por_geo_esatacades_labels
+  ON port.por_geo_esatacades_labels
   USING gist
   (geom);
 
 
 
--- Table: port_03.por_geo_places_bateaux
+-- Table: port.por_geo_places_bateaux
 
--- DROP TABLE port_03.por_geo_places_bateaux;
+-- DROP TABLE port.por_geo_places_bateaux;
 
-CREATE TABLE port_03.por_geo_places_bateaux
+CREATE TABLE port.por_geo_places_bateaux
 (
   id serial NOT NULL,
   numero_place character varying(50),
   statut character varying(50),
   emplacement character varying(50),
   type character varying(50),
-  geom geometry(MultiPolygon,21781),
+  geom geometry(MultiPolygon,2056),
   CONSTRAINT por_geo_places_bateaux_pkey PRIMARY KEY (id)
 )
 WITH (
   OIDS=FALSE
 );
-COMMENT ON TABLE port_03.por_geo_places_bateaux
+COMMENT ON TABLE port.por_geo_places_bateaux
   IS 'Places de ports pour bateaux';
 
--- Index: port_03.por_geo_places_bateaux_geom_14615917353
+-- Index: port.por_geo_places_bateaux_geom_14615917353
 
--- DROP INDEX port_03.por_geo_places_bateaux_geom_14615917353;
+-- DROP INDEX port.por_geo_places_bateaux_geom_14615917353;
 
 CREATE INDEX por_geo_places_bateaux_geom_14615917353
-  ON port_03.por_geo_places_bateaux
+  ON port.por_geo_places_bateaux
   USING gist
   (geom);
 
--- Table: port_03.por_geo_points_bathymetriques
+-- Table: port.por_geo_points_bathymetriques
 
--- DROP TABLE port_03.por_geo_points_bathymetriques;
+-- DROP TABLE port.por_geo_points_bathymetriques;
 
-CREATE TABLE port_03.por_geo_points_bathymetriques
+CREATE TABLE port.por_geo_points_bathymetriques
 (
   id serial NOT NULL,
   profondeur_m real,
-  geom geometry(Point,21781),
+  geom geometry(Point,2056),
   CONSTRAINT por_geo_points_bathymetriques_pkey PRIMARY KEY (id)
 )
 WITH (
   OIDS=FALSE
 );
-COMMENT ON TABLE port_03.por_geo_points_bathymetriques
+COMMENT ON TABLE port.por_geo_points_bathymetriques
   IS 'Points bathymetriques (profondeur)';
 
--- Index: port_03.por_geo_points_bathymetriques_geom_14931886818
+-- Index: port.por_geo_points_bathymetriques_geom_14931886818
 
--- DROP INDEX port_03.por_geo_points_bathymetriques_geom_14931886818;
+-- DROP INDEX port.por_geo_points_bathymetriques_geom_14931886818;
 
 CREATE INDEX por_geo_points_bathymetriques_geom_14931886818
-  ON port_03.por_geo_points_bathymetriques
+  ON port.por_geo_points_bathymetriques
   USING gist
   (geom);
 
--- Table: port_03.por_geo_sauvetage
+-- Table: port.por_geo_sauvetage
 
--- DROP TABLE port_03.por_geo_sauvetage;
+-- DROP TABLE port.por_geo_sauvetage;
 
-CREATE TABLE port_03.por_geo_sauvetage
+CREATE TABLE port.por_geo_sauvetage
 (
   id serial NOT NULL,
   type character varying(200),
-  geom geometry(MultiPolygon,21781),
+  geom geometry(MultiPolygon,2056),
   CONSTRAINT por_geo_sauvetage_pkey PRIMARY KEY (id)
 )
 WITH (
   OIDS=FALSE
 );
-COMMENT ON TABLE port_03.por_geo_sauvetage
+COMMENT ON TABLE port.por_geo_sauvetage
   IS 'Emplacements pour sauvetages';
 
--- Index: port_03.por_geo_sauvetage_geom_146159173521
+-- Index: port.por_geo_sauvetage_geom_146159173521
 
--- DROP INDEX port_03.por_geo_sauvetage_geom_146159173521;
+-- DROP INDEX port.por_geo_sauvetage_geom_146159173521;
 
 CREATE INDEX por_geo_sauvetage_geom_146159173521
-  ON port_03.por_geo_sauvetage
+  ON port.por_geo_sauvetage
   USING gist
   (geom);
   
--- Table: port_03.por_tbl_proprietaires
+-- Table: port.por_tbl_proprietaires
 
--- DROP TABLE port_03.por_tbl_proprietaires;
+-- DROP TABLE port.por_tbl_proprietaires;
 
-CREATE TABLE port_03.por_tbl_proprietaires
+CREATE TABLE port.por_tbl_proprietaires
 (
   id serial NOT NULL,
   nom character varying(255),
@@ -207,14 +207,14 @@ CREATE TABLE port_03.por_tbl_proprietaires
 WITH (
   OIDS=FALSE
 );
-COMMENT ON TABLE port_03.por_tbl_proprietaires
+COMMENT ON TABLE port.por_tbl_proprietaires
   IS 'Table des propriétaires';
 
--- Table: port_03.por_tbl_bateaux
+-- Table: port.por_tbl_bateaux
 
--- DROP TABLE port_03.por_tbl_bateaux;
+-- DROP TABLE port.por_tbl_bateaux;
 
-CREATE TABLE port_03.por_tbl_bateaux
+CREATE TABLE port.por_tbl_bateaux
 (
   id serial NOT NULL,
   id_proprietaire integer,
@@ -240,29 +240,29 @@ CREATE TABLE port_03.por_tbl_bateaux
   tarif_special integer DEFAULT 0,
   CONSTRAINT por_tbl_bateaux_pkey PRIMARY KEY (id),
   CONSTRAINT fk_id_proprietaire FOREIGN KEY (id_proprietaire)
-      REFERENCES port_03.por_tbl_proprietaires (id) MATCH SIMPLE
+      REFERENCES port.por_tbl_proprietaires (id) MATCH SIMPLE
       ON UPDATE NO ACTION ON DELETE NO ACTION
 )
 WITH (
   OIDS=FALSE
 );
-COMMENT ON TABLE port_03.por_tbl_bateaux
+COMMENT ON TABLE port.por_tbl_bateaux
   IS 'Table des bateaux';
 
--- Index: port_03.fki_id_proprietaire
+-- Index: port.fki_id_proprietaire
 
--- DROP INDEX port_03.fki_id_proprietaire;
+-- DROP INDEX port.fki_id_proprietaire;
 
 CREATE INDEX fki_id_proprietaire
-  ON port_03.por_tbl_bateaux
+  ON port.por_tbl_bateaux
   USING btree
   (id_proprietaire);
   
--- Table: port_03.por_tbl_evenements
+-- Table: port.por_tbl_evenements
 
--- DROP TABLE port_03.por_tbl_evenements;
+-- DROP TABLE port.por_tbl_evenements;
 
-CREATE TABLE port_03.por_tbl_evenements
+CREATE TABLE port.por_tbl_evenements
 (
   id serial NOT NULL,
   id_equipement integer,
@@ -277,8 +277,8 @@ CREATE TABLE port_03.por_tbl_evenements
 WITH (
   OIDS=FALSE
 );
-ALTER TABLE port_03.por_tbl_evenements
+ALTER TABLE port.por_tbl_evenements
   OWNER TO sitnyon;
 
-COMMENT ON TABLE port_03.por_tbl_evenements
+COMMENT ON TABLE port.por_tbl_evenements
   IS 'Table des évenements (travaux port)';
