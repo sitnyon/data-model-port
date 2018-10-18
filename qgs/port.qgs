@@ -93,20 +93,20 @@
   <mapcanvas>
     <units>meters</units>
     <extent>
-      <xmin>507693.15887613943777978</xmin>
-      <ymin>136937.35545621442724951</ymin>
-      <xmax>507901.4598851480986923</xmax>
-      <ymax>137233.47047313585062511</ymax>
+      <xmin>2507703.03030554391443729</xmin>
+      <ymin>1136888.55746885389089584</ymin>
+      <xmax>2507913.18262768723070621</xmax>
+      <ymax>1137187.29870682302862406</ymax>
     </extent>
     <rotation>0</rotation>
     <projections>0</projections>
     <destinationsrs>
       <spatialrefsys>
-        <proj4>+proj=somerc +lat_0=46.95240555555556 +lon_0=7.439583333333333 +k_0=1 +x_0=600000 +y_0=200000 +ellps=bessel +towgs84=674.4,15.1,405.3,0,0,0,0 +units=m +no_defs</proj4>
-        <srsid>1919</srsid>
-        <srid>21781</srid>
-        <authid>EPSG:21781</authid>
-        <description>CH1903 / LV03</description>
+        <proj4>+proj=somerc +lat_0=46.95240555555556 +lon_0=7.439583333333333 +k_0=1 +x_0=2600000 +y_0=1200000 +ellps=bessel +towgs84=674.374,15.056,405.346,0,0,0,0 +units=m +no_defs</proj4>
+        <srsid>47</srsid>
+        <srid>2056</srid>
+        <authid>EPSG:2056</authid>
+        <description>CH1903+ / LV95</description>
         <projectionacronym>somerc</projectionacronym>
         <ellipsoidacronym>bessel</ellipsoidacronym>
         <geographicflag>false</geographicflag>
@@ -415,7 +415,7 @@
   <projectlayers>
     <maplayer minimumScale="0" maximumScale="1e+08" readOnly="0" geometry="No geometry" type="vector" hasScaleBasedVisibilityFlag="0">
       <id>Liste_globale_copier20160425224221500</id>
-      <datasource>dbname='sitnyon' host=pollux port=5432 user='travaux_environnement_mobilite' sslmode=disable key='id_bateau' table="port_03"."por_vtbl_bateaux_proprietaires" sql="statut" NOT IN ('Placé','Résilié') AND ("ville" &lt;> 'Nyon'  OR "ville"is null)</datasource>
+      <datasource>dbname='sitnyon' host=pollux port=5432 user='travaux_environnement_mobilite' sslmode=disable key='id_bateau' table="port"."por_vtbl_bateaux_proprietaires" sql="statut" NOT IN ('Placé','Résilié') AND ("ville" &lt;> 'Nyon'  OR "ville"is null)</datasource>
       <keywordList>
         <value></value>
       </keywordList>
@@ -671,7 +671,7 @@
     </maplayer>
     <maplayer minimumScale="0" maximumScale="1e+08" readOnly="0" geometry="No geometry" type="vector" hasScaleBasedVisibilityFlag="0">
       <id>Liste_globale_copier20160425224227164</id>
-      <datasource>dbname='sitnyon' host=pollux port=5432 user='travaux_environnement_mobilite' sslmode=disable key='id_bateau' table="port_03"."por_vtbl_bateaux_proprietaires" sql="statut" NOT IN ('Placé','Résilié') AND "ville" = 'Nyon'</datasource>
+      <datasource>dbname='sitnyon' host=pollux port=5432 user='travaux_environnement_mobilite' sslmode=disable key='id_bateau' table="port"."por_vtbl_bateaux_proprietaires" sql="statut" NOT IN ('Placé','Résilié') AND "ville" = 'Nyon'</datasource>
       <keywordList>
         <value></value>
       </keywordList>
@@ -942,7 +942,7 @@ def my_form_open(dialog, layer, feature):
     </maplayer>
     <maplayer minimumScale="0" maximumScale="1e+08" readOnly="0" geometry="No geometry" type="vector" hasScaleBasedVisibilityFlag="0">
       <id>Liste_globale_copier20160425224229045</id>
-      <datasource>dbname='sitnyon' host=pollux port=5432 user='travaux_environnement_mobilite' sslmode=disable key='id_bateau' table="port_03"."por_vtbl_bateaux_proprietaires" sql="statut" = 'Résilié'</datasource>
+      <datasource>dbname='sitnyon' host=pollux port=5432 user='travaux_environnement_mobilite' sslmode=disable key='id_bateau' table="port"."por_vtbl_bateaux_proprietaires" sql="statut" = 'Résilié'</datasource>
       <keywordList>
         <value></value>
       </keywordList>
@@ -1213,7 +1213,7 @@ def my_form_open(dialog, layer, feature):
     </maplayer>
     <maplayer minimumScale="0" maximumScale="1e+08" readOnly="0" geometry="No geometry" type="vector" hasScaleBasedVisibilityFlag="0">
       <id>Liste_globale_copier20160425224231715</id>
-      <datasource>dbname='sitnyon' host=pollux port=5432 user='travaux_environnement_mobilite' sslmode=disable key='id_bateau' table="port_03"."por_vtbl_bateaux_proprietaires" sql="statut" = 'Placé'</datasource>
+      <datasource>dbname='sitnyon' host=pollux port=5432 user='travaux_environnement_mobilite' sslmode=disable key='id_bateau' table="port"."por_vtbl_bateaux_proprietaires" sql="statut" = 'Placé'</datasource>
       <keywordList>
         <value></value>
       </keywordList>
@@ -1485,18 +1485,18 @@ def my_form_open(dialog, layer, feature):
     <maplayer embedded="1" id="orthophotos_sitnyon_ete_2010_5cm20150420163955187" project="S:/Projets/Reference.qgs"/>
     <maplayer simplifyAlgorithm="0" minimumScale="0" maximumScale="1e+08" simplifyDrawingHints="1" minLabelScale="0" maxLabelScale="1e+08" simplifyDrawingTol="1" readOnly="0" geometry="Line" simplifyMaxScale="1" type="vector" hasScaleBasedVisibilityFlag="0" simplifyLocal="1" scaleBasedLabelVisibilityFlag="0">
       <id>por_geo_equipements_lineaires20160425195951820</id>
-      <datasource>dbname='sitnyon' host=pollux port=5432 user='travaux_environnement_mobilite' sslmode=disable key='id' srid=21781 type=MultiLineString table="port_03"."por_geo_equipements_lineaires" (geom) sql=</datasource>
+      <datasource>dbname='sitnyon' host=pollux port=5432 user='travaux_environnement_mobilite' sslmode=disable key='id' srid=2056 type=MultiLineString table="port"."por_geo_equipements_lineaires" (geom) sql=</datasource>
       <keywordList>
         <value></value>
       </keywordList>
       <layername>Equipements linéaires</layername>
       <srs>
         <spatialrefsys>
-          <proj4>+proj=somerc +lat_0=46.95240555555556 +lon_0=7.439583333333333 +k_0=1 +x_0=600000 +y_0=200000 +ellps=bessel +towgs84=674.4,15.1,405.3,0,0,0,0 +units=m +no_defs</proj4>
-          <srsid>1919</srsid>
-          <srid>21781</srid>
-          <authid>EPSG:21781</authid>
-          <description>CH1903 / LV03</description>
+          <proj4>+proj=somerc +lat_0=46.95240555555556 +lon_0=7.439583333333333 +k_0=1 +x_0=2600000 +y_0=1200000 +ellps=bessel +towgs84=674.374,15.056,405.346,0,0,0,0 +units=m +no_defs</proj4>
+          <srsid>47</srsid>
+          <srid>2056</srid>
+          <authid>EPSG:2056</authid>
+          <description>CH1903+ / LV95</description>
           <projectionacronym>somerc</projectionacronym>
           <ellipsoidacronym>bessel</ellipsoidacronym>
           <geographicflag>false</geographicflag>
@@ -1885,18 +1885,18 @@ def my_form_open(dialog, layer, feature):
     </maplayer>
     <maplayer simplifyAlgorithm="0" minimumScale="0" maximumScale="1e+08" simplifyDrawingHints="0" minLabelScale="0" maxLabelScale="1e+08" simplifyDrawingTol="1" readOnly="0" geometry="Point" simplifyMaxScale="1" type="vector" hasScaleBasedVisibilityFlag="0" simplifyLocal="1" scaleBasedLabelVisibilityFlag="0">
       <id>por_geo_equipements_ponctuels20160425195951943</id>
-      <datasource>dbname='sitnyon' host=pollux port=5432 user='travaux_environnement_mobilite' sslmode=disable key='id' srid=21781 type=Point table="port_03"."por_geo_equipements_ponctuels" (geom) sql=</datasource>
+      <datasource>dbname='sitnyon' host=pollux port=5432 user='travaux_environnement_mobilite' sslmode=disable key='id' srid=2056 type=Point table="port"."por_geo_equipements_ponctuels" (geom) sql=</datasource>
       <keywordList>
         <value></value>
       </keywordList>
       <layername>Equipements ponctuels</layername>
       <srs>
         <spatialrefsys>
-          <proj4>+proj=somerc +lat_0=46.95240555555556 +lon_0=7.439583333333333 +k_0=1 +x_0=600000 +y_0=200000 +ellps=bessel +towgs84=674.4,15.1,405.3,0,0,0,0 +units=m +no_defs</proj4>
-          <srsid>1919</srsid>
-          <srid>21781</srid>
-          <authid>EPSG:21781</authid>
-          <description>CH1903 / LV03</description>
+          <proj4>+proj=somerc +lat_0=46.95240555555556 +lon_0=7.439583333333333 +k_0=1 +x_0=2600000 +y_0=1200000 +ellps=bessel +towgs84=674.374,15.056,405.346,0,0,0,0 +units=m +no_defs</proj4>
+          <srsid>47</srsid>
+          <srid>2056</srid>
+          <authid>EPSG:2056</authid>
+          <description>CH1903+ / LV95</description>
           <projectionacronym>somerc</projectionacronym>
           <ellipsoidacronym>bessel</ellipsoidacronym>
           <geographicflag>false</geographicflag>
@@ -2417,18 +2417,18 @@ def my_form_open(dialog, layer, feature):
     </maplayer>
     <maplayer simplifyAlgorithm="0" minimumScale="0" maximumScale="1e+08" simplifyDrawingHints="1" minLabelScale="0" maxLabelScale="1e+08" simplifyDrawingTol="1" readOnly="0" geometry="Polygon" simplifyMaxScale="1" type="vector" hasScaleBasedVisibilityFlag="0" simplifyLocal="1" scaleBasedLabelVisibilityFlag="0">
       <id>por_geo_equipements_surfaciques20160425195951965</id>
-      <datasource>dbname='sitnyon' host=pollux port=5432 user='travaux_environnement_mobilite' sslmode=disable key='id' srid=21781 type=MultiPolygon table="port_03"."por_geo_equipements_surfaciques" (geom) sql=</datasource>
+      <datasource>dbname='sitnyon' host=pollux port=5432 user='travaux_environnement_mobilite' sslmode=disable key='id' srid=2056 type=MultiPolygon table="port"."por_geo_equipements_surfaciques" (geom) sql=</datasource>
       <keywordList>
         <value></value>
       </keywordList>
       <layername>Equipements surfaciques</layername>
       <srs>
         <spatialrefsys>
-          <proj4>+proj=somerc +lat_0=46.95240555555556 +lon_0=7.439583333333333 +k_0=1 +x_0=600000 +y_0=200000 +ellps=bessel +towgs84=674.4,15.1,405.3,0,0,0,0 +units=m +no_defs</proj4>
-          <srsid>1919</srsid>
-          <srid>21781</srid>
-          <authid>EPSG:21781</authid>
-          <description>CH1903 / LV03</description>
+          <proj4>+proj=somerc +lat_0=46.95240555555556 +lon_0=7.439583333333333 +k_0=1 +x_0=2600000 +y_0=1200000 +ellps=bessel +towgs84=674.374,15.056,405.346,0,0,0,0 +units=m +no_defs</proj4>
+          <srsid>47</srsid>
+          <srid>2056</srid>
+          <authid>EPSG:2056</authid>
+          <description>CH1903+ / LV95</description>
           <projectionacronym>somerc</projectionacronym>
           <ellipsoidacronym>bessel</ellipsoidacronym>
           <geographicflag>false</geographicflag>
@@ -2793,18 +2793,18 @@ def my_form_open(dialog, layer, feature):
     </maplayer>
     <maplayer simplifyAlgorithm="0" minimumScale="-4.65661e-10" maximumScale="1e+08" simplifyDrawingHints="0" minLabelScale="0" maxLabelScale="1e+08" simplifyDrawingTol="1" readOnly="0" geometry="Point" simplifyMaxScale="1" type="vector" hasScaleBasedVisibilityFlag="0" simplifyLocal="1" scaleBasedLabelVisibilityFlag="0">
       <id>por_geo_esatacades_labels20160425195951989</id>
-      <datasource>dbname='sitnyon' host=pollux port=5432 user='travaux_environnement_mobilite' sslmode=disable key='id' srid=21781 type=Point table="port_03"."por_geo_esatacades_labels" (geom) sql=</datasource>
+      <datasource>dbname='sitnyon' host=pollux port=5432 user='travaux_environnement_mobilite' sslmode=disable key='id' srid=2056 type=Point table="port"."por_geo_esatacades_labels" (geom) sql=</datasource>
       <keywordList>
         <value></value>
       </keywordList>
       <layername>Estacades</layername>
       <srs>
         <spatialrefsys>
-          <proj4>+proj=somerc +lat_0=46.95240555555556 +lon_0=7.439583333333333 +k_0=1 +x_0=600000 +y_0=200000 +ellps=bessel +towgs84=674.4,15.1,405.3,0,0,0,0 +units=m +no_defs</proj4>
-          <srsid>1919</srsid>
-          <srid>21781</srid>
-          <authid>EPSG:21781</authid>
-          <description>CH1903 / LV03</description>
+          <proj4>+proj=somerc +lat_0=46.95240555555556 +lon_0=7.439583333333333 +k_0=1 +x_0=2600000 +y_0=1200000 +ellps=bessel +towgs84=674.374,15.056,405.346,0,0,0,0 +units=m +no_defs</proj4>
+          <srsid>47</srsid>
+          <srid>2056</srid>
+          <authid>EPSG:2056</authid>
+          <description>CH1903+ / LV95</description>
           <projectionacronym>somerc</projectionacronym>
           <ellipsoidacronym>bessel</ellipsoidacronym>
           <geographicflag>false</geographicflag>
@@ -3061,18 +3061,18 @@ def my_form_open(dialog, layer, feature):
     </maplayer>
     <maplayer simplifyAlgorithm="0" minimumScale="-4.65661e-10" maximumScale="1e+08" simplifyDrawingHints="0" minLabelScale="0" maxLabelScale="1e+08" simplifyDrawingTol="1" readOnly="0" geometry="Point" simplifyMaxScale="1" type="vector" hasScaleBasedVisibilityFlag="0" simplifyLocal="1" scaleBasedLabelVisibilityFlag="0">
       <id>por_geo_points_bathymetriques20160425195952041</id>
-      <datasource>dbname='sitnyon' host=pollux port=5432 user='travaux_environnement_mobilite' sslmode=disable key='id' srid=21781 type=Point table="port_03"."por_geo_points_bathymetriques" (geom) sql=</datasource>
+      <datasource>dbname='sitnyon' host=pollux port=5432 user='travaux_environnement_mobilite' sslmode=disable key='id' srid=2056 type=Point table="port"."por_geo_points_bathymetriques" (geom) sql=</datasource>
       <keywordList>
         <value></value>
       </keywordList>
       <layername>Bathymétrie</layername>
       <srs>
         <spatialrefsys>
-          <proj4>+proj=somerc +lat_0=46.95240555555556 +lon_0=7.439583333333333 +k_0=1 +x_0=600000 +y_0=200000 +ellps=bessel +towgs84=674.4,15.1,405.3,0,0,0,0 +units=m +no_defs</proj4>
-          <srsid>1919</srsid>
-          <srid>21781</srid>
-          <authid>EPSG:21781</authid>
-          <description>CH1903 / LV03</description>
+          <proj4>+proj=somerc +lat_0=46.95240555555556 +lon_0=7.439583333333333 +k_0=1 +x_0=2600000 +y_0=1200000 +ellps=bessel +towgs84=674.374,15.056,405.346,0,0,0,0 +units=m +no_defs</proj4>
+          <srsid>47</srsid>
+          <srid>2056</srid>
+          <authid>EPSG:2056</authid>
+          <description>CH1903+ / LV95</description>
           <projectionacronym>somerc</projectionacronym>
           <ellipsoidacronym>bessel</ellipsoidacronym>
           <geographicflag>false</geographicflag>
@@ -3329,18 +3329,18 @@ def my_form_open(dialog, layer, feature):
     </maplayer>
     <maplayer simplifyAlgorithm="0" minimumScale="0" maximumScale="1e+08" simplifyDrawingHints="1" minLabelScale="0" maxLabelScale="1e+08" simplifyDrawingTol="1" readOnly="0" geometry="Polygon" simplifyMaxScale="1" type="vector" hasScaleBasedVisibilityFlag="0" simplifyLocal="1" scaleBasedLabelVisibilityFlag="0">
       <id>por_geo_sauvetage20160425195952063</id>
-      <datasource>dbname='sitnyon' host=pollux port=5432 user='travaux_environnement_mobilite' sslmode=disable key='id' srid=21781 type=MultiPolygon table="port_03"."por_geo_sauvetage" (geom) sql=</datasource>
+      <datasource>dbname='sitnyon' host=pollux port=5432 user='travaux_environnement_mobilite' sslmode=disable key='id' srid=2056 type=MultiPolygon table="port"."por_geo_sauvetage" (geom) sql=</datasource>
       <keywordList>
         <value></value>
       </keywordList>
       <layername>Sauvetage</layername>
       <srs>
         <spatialrefsys>
-          <proj4>+proj=somerc +lat_0=46.95240555555556 +lon_0=7.439583333333333 +k_0=1 +x_0=600000 +y_0=200000 +ellps=bessel +towgs84=674.4,15.1,405.3,0,0,0,0 +units=m +no_defs</proj4>
-          <srsid>1919</srsid>
-          <srid>21781</srid>
-          <authid>EPSG:21781</authid>
-          <description>CH1903 / LV03</description>
+          <proj4>+proj=somerc +lat_0=46.95240555555556 +lon_0=7.439583333333333 +k_0=1 +x_0=2600000 +y_0=1200000 +ellps=bessel +towgs84=674.374,15.056,405.346,0,0,0,0 +units=m +no_defs</proj4>
+          <srsid>47</srsid>
+          <srid>2056</srid>
+          <authid>EPSG:2056</authid>
+          <description>CH1903+ / LV95</description>
           <projectionacronym>somerc</projectionacronym>
           <ellipsoidacronym>bessel</ellipsoidacronym>
           <geographicflag>false</geographicflag>
@@ -3607,7 +3607,7 @@ def my_form_open(dialog, layer, feature):
     </maplayer>
     <maplayer minimumScale="0" maximumScale="1e+08" readOnly="0" geometry="No geometry" type="vector" hasScaleBasedVisibilityFlag="0">
       <id>por_tbl_bateaux20160425200014997</id>
-      <datasource>dbname='sitnyon' host=pollux port=5432 user='travaux_environnement_mobilite' sslmode=disable key='id' table="port_03"."por_tbl_bateaux" sql=</datasource>
+      <datasource>dbname='sitnyon' host=pollux port=5432 user='travaux_environnement_mobilite' sslmode=disable key='id' table="port"."por_tbl_bateaux" sql=</datasource>
       <keywordList>
         <value></value>
       </keywordList>
@@ -3860,7 +3860,7 @@ def my_form_open(dialog, layer, feature):
     </maplayer>
     <maplayer minimumScale="0" maximumScale="1e+08" readOnly="0" geometry="No geometry" type="vector" hasScaleBasedVisibilityFlag="0">
       <id>por_tbl_evenements20160425222956505</id>
-      <datasource>dbname='sitnyon' host=pollux port=5432 user='travaux_environnement_mobilite' sslmode=disable key='id' table="port_03"."por_tbl_evenements" sql=</datasource>
+      <datasource>dbname='sitnyon' host=pollux port=5432 user='travaux_environnement_mobilite' sslmode=disable key='id' table="port"."por_tbl_evenements" sql=</datasource>
       <keywordList>
         <value></value>
       </keywordList>
@@ -3962,7 +3962,7 @@ def my_form_open(dialog, layer, feature):
     </maplayer>
     <maplayer minimumScale="0" maximumScale="1e+08" readOnly="0" geometry="No geometry" type="vector" hasScaleBasedVisibilityFlag="0">
       <id>por_tbl_proprietaires20160425200015064</id>
-      <datasource>dbname='sitnyon' host=pollux port=5432 user='travaux_environnement_mobilite' sslmode=disable key='id' table="port_03"."por_tbl_proprietaires" sql=</datasource>
+      <datasource>dbname='sitnyon' host=pollux port=5432 user='travaux_environnement_mobilite' sslmode=disable key='id' table="port"."por_tbl_proprietaires" sql=</datasource>
       <keywordList>
         <value></value>
       </keywordList>
@@ -4110,19 +4110,25 @@ def my_form_open(dialog, layer, feature):
       </globe>
     </maplayer>
     <maplayer simplifyAlgorithm="0" minimumScale="0" maximumScale="1e+08" simplifyDrawingHints="1" minLabelScale="0" maxLabelScale="1e+08" simplifyDrawingTol="1" readOnly="0" geometry="Polygon" simplifyMaxScale="1" type="vector" hasScaleBasedVisibilityFlag="0" simplifyLocal="1" scaleBasedLabelVisibilityFlag="0">
+      <extent>
+        <xmin>2507109.57858770014718175</xmin>
+        <ymin>1136087.24683525995351374</ymin>
+        <xmax>2507910.15886252978816628</xmax>
+        <ymax>1137225.30869419011287391</ymax>
+      </extent>
       <id>por_vgeo_placement20160425200029325</id>
-      <datasource>dbname='sitnyon' host=pollux port=5432 user='travaux_environnement_mobilite' sslmode=disable key='id' srid=21781 type=MultiPolygon table="port_03"."por_vgeo_placement" (geom) sql=</datasource>
+      <datasource>dbname='sitnyon' host=pollux port=5432 user='travaux_environnement_mobilite' sslmode=disable key='id' srid=2056 type=MultiPolygon table="port"."por_vgeo_placement" (geom) sql=</datasource>
       <keywordList>
         <value></value>
       </keywordList>
       <layername>Placement des bateaux</layername>
       <srs>
         <spatialrefsys>
-          <proj4>+proj=somerc +lat_0=46.95240555555556 +lon_0=7.439583333333333 +k_0=1 +x_0=600000 +y_0=200000 +ellps=bessel +towgs84=674.4,15.1,405.3,0,0,0,0 +units=m +no_defs</proj4>
-          <srsid>1919</srsid>
-          <srid>21781</srid>
-          <authid>EPSG:21781</authid>
-          <description>CH1903 / LV03</description>
+          <proj4>+proj=somerc +lat_0=46.95240555555556 +lon_0=7.439583333333333 +k_0=1 +x_0=2600000 +y_0=1200000 +ellps=bessel +towgs84=674.374,15.056,405.346,0,0,0,0 +units=m +no_defs</proj4>
+          <srsid>47</srsid>
+          <srid>2056</srid>
+          <authid>EPSG:2056</authid>
+          <description>CH1903+ / LV95</description>
           <projectionacronym>somerc</projectionacronym>
           <ellipsoidacronym>bessel</ellipsoidacronym>
           <geographicflag>false</geographicflag>
@@ -4573,7 +4579,7 @@ def my_form_open(dialog, layer, feature):
     </maplayer>
     <maplayer minimumScale="0" maximumScale="1e+08" readOnly="0" geometry="No geometry" type="vector" hasScaleBasedVisibilityFlag="0">
       <id>por_vtbl_bateaux_proprietaires20160425200029363</id>
-      <datasource>dbname='sitnyon' host=pollux port=5432 user='travaux_environnement_mobilite' sslmode=disable key='id_bateau' table="port_03"."por_vtbl_bateaux_proprietaires" sql=</datasource>
+      <datasource>dbname='sitnyon' host=pollux port=5432 user='travaux_environnement_mobilite' sslmode=disable key='id_bateau' table="port"."por_vtbl_bateaux_proprietaires" sql=</datasource>
       <keywordList>
         <value></value>
       </keywordList>
